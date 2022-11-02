@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<table class="table table-success table-striped table-hover table-sm">
+  <thead class="table-dark">
+    <th class="th-sm">FillScore</th>
+    <th class="th-sm">FlowScore</th>
+    <th class="text-center th-sm">Nodes colored name</th>
+    <th class="text-center th-sm">#Ticks</th>
+    <th class="text-center th-sm" data-toggle="tooltip" title="Median|Average|cappedAverage(0-0.85)">Suggestions</th>
+    <th class="text-right th-sm">Current Fee</th>
+    <th></th>
+  </thead>
+  {%for chan in chans%}
+  <tr>
+    <td>{{chan['fillscore']}}</td>
+    <td>{{chan['flowscore']}}</td>
+    <td class="text-center"><div style="color:{{chan['color']}};">{{chan['alias']}}</div></td>
+    <td class="text-center">{{chan['ticks']}}</td>
+    <td class="text-center">{{chan['pixi']['median']}} | {{chan['pixi']['round']}} | {{chan['pixi']['roundCapped']}}</td>
+    <td class="text-right">{{chan['feerate']}}</td>
+    <td><div class="dropdown">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">Actions</button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="/actions/stop">Restart</a></li>
+        <li><a class="dropdown-item" href="/addpixi/{{chan['chanID']}}">Recalc Sug</a></li>
+        <li><a class="dropdown-item" href="/clear/{{chan['chanID']}}">Clear Score</a></li>
+        <li><a class="dropdown-item" href="/chans/{{chan['chanID']}}">Details</a></li>
+        <li>
+          <form><div class="input-group mb-3">
+            <button class="btn btn-warning" type="submit">Set to:</button>
+            <input type="text" class="form-control" placeholder="{{(chan['pixi']['median'] + chan['pixi']['round'] + chan['pixi']['roundCapped'])/3}}">
+          </div></form></li><li>
+            <form><div class="input-group mb-3">
+              <button class="btn btn-warning" type="submit">Intrvll</button>
+              <input type="text" class="form-control" placeholder="{{chan['tickintervall']}}">
+            </div></form></li></ul></div>
+    </td>
+  </tr>
+  {%endfor%}
+</table>
+
+{% endblock %}
