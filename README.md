@@ -2,14 +2,14 @@
 Welcome to financial neuron managment engine. short for -fancy smart acronym- This is currently more a blueprint of some ideas and mainly focuses on lnd node management using docker interactions.
 
 Functionalitys
-  aebal.py: Uses C-Ottos rebalance-lnd in an automated way on heavy imbalanced channels.
-  lndtoolbox: collection of functions, often used by this programms
-  feediedritte: collects transaction agnostic data about the performance (fillednesss and activity) and fee state of channels. And displays them using flask. Let it run a few days and adjust settings, to improve numbers. (higher flowscore and fillednessscore closer to zero)
-  txw.py: makeshift keysend reader
-  maintain.py: bulk-reopen channels with more then 10k updates
-  anfang.py: bulk-recover closed channels.
-  fun.py: graphs-colordata sumarized
-  lnpixi: generate websites about feedata of one to all node(s)
+  - aebal.py: Uses C-Ottos rebalance-lnd in an automated way on heavy imbalanced channels.
+  - lndtoolbox: collection of functions, often used by this programms
+  - feediedritte: collects transaction agnostic data about the performance (fillednesss and activity) and fee state of channels. And displays them using flask. Let it run a few days and adjust settings, to improve numbers. (higher flowscore and fillednessscore closer to zero)
+  - txw.py: makeshift keysend reader
+  - maintain.py: bulk-reopen channels with more then 10k updates
+  - anfang.py: bulk-recover closed channels.
+  - fun.py: graphs-colordata sumarized
+  - lnpixi: generate websites about feedata of one to all node(s)
 
 Screenshots:
 
